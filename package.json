@@ -1,7 +1,6 @@
 {
   "name": "team-profile",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -21,5 +20,7 @@
   "homepage": "https://github.com/pgomet/Team-Profile#readme",
   "dependencies": {
     "inquirer": "^8.2.4"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
