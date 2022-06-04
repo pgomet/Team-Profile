@@ -4,7 +4,6 @@ const path = require("path");
 
 const generateHTML = require('./src/generateHTML');
 
-// team profiles
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -166,33 +165,24 @@ const addEmployee = () => {
         }
     ])
     .then(employeeData => {
-        // data for employee types 
-
         let { name, id, email, role, github, school, confirmAddEmployee } = employeeData; 
         let employee; 
 
         if (role === "Engineer") {
             employee = new Engineer (name, id, email, github);
-
             console.log(employee);
-
         } else if (role === "Intern") {
             employee = new Intern (name, id, email, school);
-
             console.log(employee);
         }
-
         teamArray.push(employee); 
-
         if (confirmAddEmployee) {
             return addEmployee(teamArray); 
         } else {
             return teamArray;
         }
     })
-
 };
-
 
 // Create HTML
 const writeFile = data => {
