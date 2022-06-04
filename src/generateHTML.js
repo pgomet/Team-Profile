@@ -1,4 +1,4 @@
-// Create Manager info
+// Generate Manager info
 const generateManager = function (manager) {
     return `
     <div class="col-4 mt-4">
@@ -17,7 +17,7 @@ const generateManager = function (manager) {
     `;
 }
 
-// Create Engineer info
+// Generate Engineer info
 const generateEngineer = function (engineer) {
     return `
     <div class="col-4 mt-4">
@@ -36,7 +36,7 @@ const generateEngineer = function (engineer) {
     `
 }
 
-// Create Intern info
+// Generate Intern info
 const generateIntern = function (intern) {
     return `
     <div class="col-4 mt-4">
@@ -56,42 +56,29 @@ const generateIntern = function (intern) {
 };
 
 generateHTML = (data) => {
-
     pageArray = []; 
-
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole(); 
-
-
         if (role === 'Manager') {
             const managerCard = generateManager(employee);
-
             pageArray.push(managerCard);
         }
-
         if (role === 'Engineer') {
             const engineerCard = generateEngineer(employee);
-
             pageArray.push(engineerCard);
         }
-
         if (role === 'Intern') {
             const internCard = generateIntern(employee);
-
             pageArray.push(internCard);
         }
-        
     }
-
     const employeeCards = pageArray.join('')
-
     const generateTeam = generateTeamPage(employeeCards); 
     return generateTeam;
-
 }
 
-// Create HTML page
+// Generate HTML page
 const generateTeamPage = function (employeeCards) {   
   return`
   <!DOCTYPE html>
