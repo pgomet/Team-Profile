@@ -1,35 +1,18 @@
 const Employee = require('../lib/Employee');
 
-test('creates an employee object', () => {
-    const employee = new Employee('Name', 1, 'name@fakemail.com', 'username');
+test('Creates new employee', () => {
+    const employee = new Employee('name', 1, 'name@fakemail.com');
 
-    expect(employee.name).toEqual(expect.any(String));
+    expect(employee.name).toBe("name");
     expect(employee.id).toEqual(expect.any(Number));
     expect(employee.email).toEqual(expect.any(String));
-});
+})
 
-test('gets employee ID', () => {
-    const employee = new Employee('Name', 1, 'name@gmail.com');
+test('Checks employee info', () => {
+    const employee = new Employee('name', 1234, 'name@fakemail.com');
 
-    expect(employee.getId()).toEqual(expect.any(Number));
-});
-
-test('gets employee name', () => {
-    const employee = new Employee('Name', 1, 'name@gmail.com');
-
-    expect(employee.getName()).toEqual(expect.any(String));
-});
-
-// Gets role from getRole()
-test('gets role of employee', () => {
-    const employee = new Employee('Name', 1, 'name@gmail.com');
-
-    expect(employee.getRole()).toEqual("Employee");
-}); 
-
-// Gets emails from getEmail()
-test('gets employee email', () => {
-    const employee = new Employee('Name', 1, 'name@gmail.com');
-
-    expect(employee.getEmail()).toEqual(expect.stringContaining(employee.email.toString()));
-});
+    expect(employee.getName()).toBe(employee.name);
+    expect(employee.getId()).toBe(employee.id);
+    expect(employee.getEmail()).toBe(employee.email);
+    expect(employee.getRole()).toBe('Employee');
+})
